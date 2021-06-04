@@ -1,3 +1,4 @@
+import numpy as np
 import statistics as stat
 import matplotlib.pyplot as plt
 
@@ -26,12 +27,19 @@ def plotF(y1,y2,y3,y):
     for i in x:
          y4.append(pow(i,2))
 
+    yp1 = np.poly1d(np.polyfit(x,y1,3))
+    yp = np.poly1d(np.polyfit(x,y,5))
+
     plt.plot(x,y1,label="Means")
     plt.plot(x,y2,label="Medians")
     plt.plot(x,y3,label="Harmonic Mean")
     plt.plot(x,y,label="Fibonacci")
     plt.plot(x,y4,label="y=x^2",ls="--")
     plt.plot(x,x,label="y=x",ls="--")
+    plt.plot(x,yp1(x),label="Taylor aproach of F mean",ls="-.")
+    print("F mean is approached by:\n %s"%yp1)
+    plt.plot(x,yp(x),label="Taylor aproach of F",ls="-.")
+    print("F is approached by:\n %s"%yp)
     plt.xlabel("x")
     plt.ylabel("y")
     title = "Mean, median, hmean of fibonacci for n=%d"%l
@@ -68,4 +76,4 @@ for i in range(len(a)):
     chmn.append(hmn)
 
 plotF(cmn,cmdn,chmn,a)
-print("Exiting...")
+print("\nExiting...")
