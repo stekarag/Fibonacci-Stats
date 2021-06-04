@@ -28,7 +28,7 @@ def plotF(y1,y2,y3,y):
          y4.append(pow(i,2))
 
     yp1 = np.poly1d(np.polyfit(x,y1,3))
-    yp = np.poly1d(np.polyfit(x,y,5))
+    yp = np.poly1d(np.polyfit(x,y,7))
 
     plt.plot(x,y1,label="Means")
     plt.plot(x,y2,label="Medians")
@@ -61,7 +61,7 @@ while not n:
         print("Invalid response, n set to default value(n=10)")
     elif n > 123:
         n = 123
-        print("Exceeded maximum capacity, n set to 123") 
+        print("Exceeded maximum capacity, n set to 123") # The actual boundary is above 1234 but the mean and median are not visible at that magnitude 
 
 a = createf(n)
 cmn = []
@@ -69,7 +69,7 @@ cmdn = []
 chmn = []
 for i in range(len(a)):
     j = i+1
-    print("Calculating stats for F(%i)=%i"%(j,a[i]))
+    #print("Calculating stats for F(%i)=%i"%(j,a[i]))
     mn,mdn,hmn = stats(a,j)
     cmn.append(mn)
     cmdn.append(mdn)
