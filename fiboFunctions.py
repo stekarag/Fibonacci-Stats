@@ -1,5 +1,5 @@
-def createFibonacci(x=100):
-    a = [1,1]
+def createFibonacci(x=91):
+    a = [0, 1]
     for i in range(x):
         next = a[-1]+a[-2]
         a.append(next)
