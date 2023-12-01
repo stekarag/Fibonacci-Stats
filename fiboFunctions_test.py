@@ -1,3 +1,4 @@
+import random
 import unittest
 import fibonacci
 import fiboFunctions as funcs
@@ -5,9 +6,9 @@ import fiboFunctions as funcs
 class TestFibonacci(unittest.TestCase):
 
     def test_createFibonacci(self):
-        fibo = funcs.createFibonacci(5)
+        fibo = funcs.createFibonacci(random.randint(1,40))
         print(f'fibo gives the array {fibo}')
-        nacci = fibonacci.fibonacci(8)
+        nacci = fibonacci.fibonacci(fibo[-1])
         self.assertEqual(nacci, fibo)
         
     def test_raises_typeError(self):
